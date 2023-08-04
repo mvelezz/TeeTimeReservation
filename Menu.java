@@ -25,7 +25,18 @@ public class Menu {
 			System.out.println("Please enter the new Member Number");
 			int memNumInput = Inputobj.nextInt();
 			newMember1.MemberNumber = memNumInput;
-			System.out.println(newMember1.MemberNumber);
+			System.out.println("Please enter First Name");
+			String FnameInput = Inputobj.next();
+			newMember1.fname = FnameInput;
+			System.out.println("Please enter Last Name");
+			String LnameInput = Inputobj.next();
+			newMember1.lname = LnameInput;
+			System.out.println("Please enter Member Status");
+			String MemStatusInput = Inputobj.next();
+			newMember1.MemberStatus = MemStatusInput;
+			
+			System.out.println(newMember1.MemberNumber + " " + newMember1.fname + " " + newMember1.lname + newMember1.MemberStatus);
+			
 			
 			
 		}
