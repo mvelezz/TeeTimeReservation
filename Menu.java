@@ -1,46 +1,83 @@
 package teeTimeReservations;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.InputMismatchException;
 
-public class Menu {
+public class Menu extends Member {
+	
+	static ArrayList<Member> MembersList = new ArrayList<>();
+	
+	Hashtable<Integer, String> memberDataBase = new Hashtable<>();
 	
 	static void menu() {
 		System.out.println("Please choose from the following");
 		System.out.println("1. Reserve a Tee Time");
 		System.out.println("2. Add a new Member");
 		System.out.println("3. View all members");
+		System.out.println("4. Exit Program");
 		
-		Scanner Inputobj = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
-		 
-		int Input = Inputobj.nextInt(); 
+		int choice = scanner.nextInt();
 		
+		//try {
+		while (choice != 4) {
+			switch(choice) {
+			case 1:
+				System.out.println("Made it to reserve tee time: ");
+				break;
+			case 2:
+				System.out.println("Please enter the members ID");
+				int MemberNumber = scanner.nextInt();
+				
+				System.out.println("Please enter the members first name");
+				String fname = scanner.next();					
+				System.out.println("Please Enter the members Last Name");
+				String lname = scanner.next();
+					
+				System.out.println("Please enter the members Status");
+				String MemberStatus = scanner.next();
+					
+				member = new Member(MemberNumber, fname, lname, MemberStatus);					
+				MembersList.add(member);
+					
+				for (int i = 0;i < MembersList.size(); i++) {
+						System.out.print("The members number is ");
+						System.out.println(MembersList.get(i).MemberNumber);
+						System.out.print("Fname = ");
+						System.out.println(MembersList.get(i).fname);
+					
+					}
+					
+				
 		
-		if (Input == 1) {
-			System.out.println("Made it to 1");
+					
 			}
-		
-		if (Input ==2) {
-			Members newMember1 = new Members();
-			System.out.println("Please enter Member Information: ");
-			System.out.println("Please enter the new Member Number");
-			int memNumInput = Inputobj.nextInt();
-			newMember1.MemberNumber = memNumInput;
-			System.out.println("Please enter First Name");
-			String FnameInput = Inputobj.next();
-			newMember1.fname = FnameInput;
-			System.out.println("Please enter Last Name");
-			String LnameInput = Inputobj.next();
-			newMember1.lname = LnameInput;
-			System.out.println("Please enter Member Status");
-			String MemStatusInput = Inputobj.next();
-			newMember1.MemberStatus = MemStatusInput;
+			System.out.println("Please choose from the following");
+			System.out.println("1. Reserve a Tee Time");
+			System.out.println("2. Add a new Member");
+			System.out.println("3. View all members");
+			System.out.println("4. Exit Program");
 			
-			System.out.println(newMember1.MemberNumber + " " + newMember1.fname + " " + newMember1.lname + newMember1.MemberStatus);
-			
-			
-			
+			choice = scanner.nextInt();
 		}
+
+		}
+		
+		//catch(InputMismatchException nfe) {
+		//	System.out.println("Pleaste enter a valid number");
+			
+		//	}
+
+			
+			
+		
+		
+
 	}
+
 	
 
-}
+
