@@ -1,6 +1,8 @@
 package teeTimeReservations;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable{
 	int MemberNumber;
 	String fname;
 	String lname;
@@ -9,9 +11,6 @@ public class Member {
 	
 	static Member member = null;
 	
-	Member(){
-		
-	}
 	
 	Member (int MemberNumber, String fname, String lname, String MemberStatus){
 		this.MemberNumber = MemberNumber;
@@ -20,9 +19,8 @@ public class Member {
 		this.MemberStatus = MemberStatus;
 	}
 	
-	public void display() {
-		System.out.println("Member Number is: " + MemberNumber + " " + "and name is " + fname + " " + lname);
-		System.out.println();
+	public String toString() {
+		return MemberNumber + " " + fname + " " + lname + " " + MemberStatus;
 	}
 	
 
